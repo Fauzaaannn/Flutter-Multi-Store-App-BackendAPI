@@ -1,0 +1,15 @@
+{
+  "name": "backend_api",
+  "version": "1.0.0",
+  "description": "flutter app backend api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Fauzan",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2",
+    "mongoose": "^8.9.3"
+  }
+}
