@@ -1,0 +1,1 @@
+Proyek ini adalah aplikasi backend berbasis Node.js dan Express yang terintegrasi dengan database MongoDB Atlas. Aplikasi ini dirancang untuk mengelola data menggunakan database NoSQL MongoDB yang fleksibel dan scalable. Dalam proyek ini, kami menggunakan Mongoose sebagai library untuk mempermudah koneksi dan interaksi antara Node.js dan MongoDB.
