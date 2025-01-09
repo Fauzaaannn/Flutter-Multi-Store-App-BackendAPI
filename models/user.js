@@ -50,5 +50,6 @@ const userSchema = mongoose.Schema({
 });
 
 const User = mongoose.model("User", userSchema);
+// mongo will pluralize the collection name from capital letter U to small letter U (users)
 
 module.exports = User;
