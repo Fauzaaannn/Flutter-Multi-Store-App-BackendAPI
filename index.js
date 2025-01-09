@@ -1,6 +1,5 @@
 // import the express module
 const express = require("express");
-const routes = require("./routes/hello");
 const mongoose = require("mongoose");
 
 // Define the port number
@@ -13,7 +12,6 @@ const DB =
   "mongodb+srv://fauzanabderrasheed:OjanMongoAtlas@cluster0.mci0f.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 // Middleware
-app.use(routes);
 
 mongoose.connect(DB).then(() => {
   console.log("MongoDB Connection Successful");
