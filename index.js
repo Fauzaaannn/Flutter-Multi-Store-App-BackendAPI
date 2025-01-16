@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const authRouter = require("./routes/auth");
 const bannerRouter = require("./routes/banner");
 const categoryRouter = require("./routes/category");
+const subcategoryRouter = require("./routes/sub_category");
 
 // Define the port number
 const port = 3000;
@@ -21,6 +22,7 @@ app.use(express.json()); // Parse JSON bodies, automatically handle JSON data
 app.use(authRouter);
 app.use(bannerRouter);
 app.use(categoryRouter);
+app.use(subcategoryRouter);
 
 mongoose.connect(DB).then(() => {
   console.log("MongoDB Connection Successful");

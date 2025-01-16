@@ -19,4 +19,26 @@ subcategoryRouter.post("/api/subcategories", async (req, res) => {
   }
 });
 
+subcategoryRouter.get(
+  "/api/category/:categoryName/subcategories",
+  async (req, res) => {
+    try {
+      // extract the categoryName from the request Url using Destructuring
+      const { categoryName } = req.params;
+      const subcategories = await SubCategory.find({
+        categoryName: categoryName,
+      }); // Find all subcategories in the database
+
+      // check if any subcategories were found
+      if (!subcategories || subcategories.length == 0) {
+        return res.status(404).json({ msg: "No subcategories found" });
+      } else {
+        return res.status(200).json(subcategories);
+      }
+    } catch (e) {
+      res.status(500).json({ error: e.message });
+    }
+  }
+);
+
 module.exports = subcategoryRouter;
