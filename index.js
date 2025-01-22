@@ -1,6 +1,7 @@
 // import the express module
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors");
 
 // import the routes module
 const authRouter = require("./routes/auth");
@@ -21,6 +22,9 @@ const DB =
 
 // Middleware
 app.use(express.json()); // Parse JSON bodies, automatically handle JSON data
+app.use(cors()); // Enable CORS for all routes and origin
+
+// Routes
 app.use(authRouter);
 app.use(bannerRouter);
 app.use(categoryRouter);
