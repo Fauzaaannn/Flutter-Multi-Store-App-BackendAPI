@@ -30,11 +30,13 @@ authRouter.post("/api/signin", async (req, res) => {
     const { email, password } = req.body;
     const findUser = await User.findOne({ email }); // Find the user by email
 
-    if (!findUser) { // Check jika user tidak ditemukan
+    if (!findUser) {
+      // Check jika user tidak ditemukan
       return res
         .status(400)
         .json({ message: "User Not Found with this Email!" }); // Return an error message if the email is invalid
-    } else { // Check jika user ditemukan
+    } else {
+      // Check jika user ditemukan
       const isMatch = await bcrypt.compare(password, findUser.password); // Compare the password the user sent with the hashed password
 
       // Compare the password with the hashed password
@@ -43,7 +45,7 @@ authRouter.post("/api/signin", async (req, res) => {
       } else {
         const token = jwt.sign({ id: findUser._id }, "passwordKey"); // Create a token
         const { password, ...userWithoutPassword } = findUser._doc; // remove sensitive information (password)
-        res.json({ token, ...userWithoutPassword }); // Send the responses
+        res.json({ token, user: userWithoutPassword }); // Send the responses
       }
     }
   } catch (e) {
